@@ -185,4 +185,7 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+
+    'product-comments-store-path' => "/opt/myprogram/product_comments"
+
 ];
