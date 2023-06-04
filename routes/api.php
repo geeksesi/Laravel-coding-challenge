@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,7 @@ Route::middleware("auth:sanctum")
     ->name("products.store");
 
 Route::get("products", [ProductController::class, "index"])->name("products.index");
+
+Route::middleware("auth:sanctum")
+    ->post("comments", [CommentController::class, "store"])
+    ->name("comments.store");

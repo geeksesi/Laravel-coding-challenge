@@ -16,7 +16,7 @@ class Comment extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ["comment"];
+    protected $fillable = ["comment", "user_id"];
 
     public function product(): BelongsTo
     {
