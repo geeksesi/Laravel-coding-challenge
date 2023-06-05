@@ -23,7 +23,7 @@ class ProductService
 
     public function updateCommentsCountInProductComments(Product $product)
     {
-        $commentCounts = $product->comment()->count();
+        $commentCounts = $product->comments()->count();
         $finalText = sprintf("%s:%d", $product->name, $commentCounts);
 
         $filePath = config("app.product-comments-store-path");

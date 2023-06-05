@@ -12,7 +12,7 @@ class CommentController extends Controller
         $data = $request->validated();
         $data["user_id"] = auth()->user()->id;
 
-        $request->product->comment()->create($data);
+        $request->product->comments()->create($data);
         return response("", 201);
     }
 }
