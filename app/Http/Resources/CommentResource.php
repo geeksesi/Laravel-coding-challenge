@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResource extends JsonResource
+class CommentResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +16,8 @@ class ProductResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "name" => $this->name,
-            "created_at" => $this->created_at,
-            "comments_count" => $this->whenLoaded("comments", $this->comments_count),
-            "comments" => $this->whenLoaded("comments", CommentResource::collection($this->comments), []),
+            "comment" => $this->comment,
+            "user" => $this->whenLoaded("user", new UserResource($this->user), null),
         ];
     }
 }
