@@ -32,7 +32,6 @@ class NewStateActionTest extends TestCase
         $this->action->execute($this->filePath, "hello");
 
         $this->assertFileExists($this->filePath);
-        $this->cleanUp();
     }
 
     public function test_new_content_should_be_in_new_line(): void
@@ -41,6 +40,5 @@ class NewStateActionTest extends TestCase
         $this->action->execute($this->filePath, "i am new line");
 
         $this->assertFileEquals($this->filePath, storage_path("tests/new-content-new-line-test.txt"));
-        $this->cleanUp();
     }
 }

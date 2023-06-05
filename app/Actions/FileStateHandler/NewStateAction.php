@@ -24,6 +24,5 @@ class NewStateAction
 
         $command = sprintf("mkdir -p %s ", $directoryPath);
         exec($command, $output);
-        dd($output);
     }
 }
