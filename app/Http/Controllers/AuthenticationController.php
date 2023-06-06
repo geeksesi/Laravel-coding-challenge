@@ -12,6 +12,21 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticationController extends Controller
 {
+    /**
+     * User Register
+     *
+     * @response {
+     *  "user": {
+     *      id: 1,
+     *      username: parspack
+     *      email: parspack@gmail.com
+     *  },
+     *  "token" : "JWT TOKEN"
+     * }
+     *
+     *
+     * @group authentication
+     */
     public function register(RegisterRequest $request)
     {
         $user = User::create($request->validated());
@@ -23,6 +38,20 @@ class AuthenticationController extends Controller
         ]);
     }
 
+    /**
+     * User Login
+     *
+     * @response {
+     *  "user": {
+     *      id: 1,
+     *      username: parspack
+     *      email: parspack@gmail.com
+     *  },
+     *  "token" : "JWT TOKEN"
+     * }
+     *
+     * @group authentication
+     */
     public function login(LoginRequest $request)
     {
         if (!Auth::attempt($request->validated())) {

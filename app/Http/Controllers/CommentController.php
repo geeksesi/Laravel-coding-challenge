@@ -7,6 +7,15 @@ use App\Models\Comment;
 
 class CommentController extends Controller
 {
+    /**
+     * Create Comment
+     * add a comment to a product. each user has limit to maximum 2 comment on each product
+     *
+     * @response 201
+     *
+     * @group Comment
+     * @authenticated
+     */
     public function store(StoreCommentRequest $request)
     {
         $data = $request->validated();

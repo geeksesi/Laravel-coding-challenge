@@ -12,6 +12,11 @@ class ProductController extends Controller
     {
     }
 
+    /**
+     * List of Products with comments
+     *
+     * @group Product
+     */
     public function index()
     {
         $products = Product::with(["comments", "comments.user"])
@@ -20,6 +25,15 @@ class ProductController extends Controller
         return ProductResource::collection($products);
     }
 
+    /**
+     * Create Product
+     * create a product just with a name
+     *
+     * @response 201
+     *
+     * @group Product
+     * @authenticated
+     */
     public function store(StoreProductRequest $request)
     {
         Product::create($request->validated());
